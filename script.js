@@ -100,8 +100,8 @@ const navigation = document.querySelector('.nav');
 const handleHover = function (event) {
   if (event.target.classList.contains('nav__link')) {
     const element = event.target;
-    const siblings = element.closest('.nav').querySelectorAll('.nav__link');
-    const logo = element.closest('.nav').querySelector('img');
+    const siblings = element.closest('nav').querySelectorAll('.nav__link');
+    const logo = element.closest('nav').querySelector('img');
 
     // adjust each sibling navigation element's opacity according to user input
     siblings.forEach(sibling => {
@@ -115,3 +115,17 @@ const handleHover = function (event) {
 
 navigation.addEventListener('mouseover', handleHover.bind(0.5));
 navigation.addEventListener('mouseout', handleHover.bind(1));
+
+//////////////////////////
+//       Sticky Navigation
+//////////////////////////
+const initCoords = section1.getBoundingClientRect();
+console.log(initCoords);
+
+window.addEventListener('scroll', function () {
+  if (window.scrollY > initCoords.top) {
+    navigation.classList.add('sticky');
+  } else {
+    navigation.classList.remove('sticky');
+  }
+});
