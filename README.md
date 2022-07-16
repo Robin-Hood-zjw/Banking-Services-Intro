@@ -1,6 +1,6 @@
 # Banking-Services-Intro
 <h2>Intro to Web Info</h2>
-This deployed website serves the introduction of the basic information of this banking services. It entails basic navigation choices, service types and other info that customers could need.
+This deployed website introduces the basic information of this banking service. It entails basic navigation choices, service types, and other info that customers could need.
 <br />
 
 <h2>Link</h2>
