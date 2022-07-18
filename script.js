@@ -189,3 +189,37 @@ allSections.forEach(function (section) {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
 });
+
+//////////////////////////
+//      Lazy Image Loading
+//////////////////////////
+// select all the target images which contain high-resolution image data
+const imgs = document.querySelectorAll('img[data-src]');
+
+// configure the callback function that implements high-resolution loading
+const imgLoader = function (entries, observer) {
+  const [entry] = entries;
+
+  // quit the loader if none is intersecting
+  if (!entry.isIntersecting) return;
+
+  // replace the original low-resolution images with high-resolution ones
+  entry.target.src = entry.target.dataset.src;
+
+  // remove the blur effect of the event target after 1.5 seconds
+  entry.target.addEventListener('load', function () {
+    setTimeout(entry.target.classList.remove('lazy-img'), 1500);
+  });
+
+  // stop observing the evemt target
+  observer.unobserve(entry.target);
+};
+// configure the settings of the intersection observer API
+const imgObserver = new IntersectionObserver(imgLoader, {
+  root: null,
+  threshold: 0,
+  rootMargin: '300px',
+});
+
+// implement the intersection observer API for each image target
+imgs.forEach(img => imgObserver.observe(img));
