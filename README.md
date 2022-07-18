@@ -12,3 +12,4 @@ https://robin-hood-zjw.github.io/Banking-Services-Intro
   <li>HTML</li>
   <li>CSS</li>
 </ul>
+<p style="margin-left:5px">The techniques entail <strong>intersection observer</strong>, <strong>lazy image loading</strong></p>
