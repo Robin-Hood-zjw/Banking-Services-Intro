@@ -119,13 +119,73 @@ navigation.addEventListener('mouseout', handleHover.bind(1));
 //////////////////////////
 //       Sticky Navigation
 //////////////////////////
-const initCoords = section1.getBoundingClientRect();
-console.log(initCoords);
+// const initCoords = section1.getBoundingClientRect();
+// console.log(initCoords);
 
-window.addEventListener('scroll', function () {
-  if (window.scrollY > initCoords.top) {
+// window.addEventListener('scroll', function () {
+//   if (window.scrollY > initCoords.top) {
+//     navigation.classList.add('sticky');
+//   } else {
+//     navigation.classList.remove('sticky');
+//   }
+// });
+
+// Method #2: inplement the use of intersection observer API
+
+// retrieve the height of the navigation bar
+const navigationHeight = navigation.getBoundingClientRect().height;
+
+// construct the callback function that manipulate the sticky characteristic of the navigation bar
+const onCallBack = function (entries) {
+  const entry = entries[0];
+
+  // check whether the triggered entry event has intersection with the target
+  if (!entry.isIntersecting) {
     navigation.classList.add('sticky');
   } else {
     navigation.classList.remove('sticky');
   }
+};
+
+// manipulate the data details of the intersection observer API
+const obsOptions = {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navigationHeight}px`,
+};
+
+// call the intersection observer API evenr for the sticky characteristic of the navigation bar
+const observer = new IntersectionObserver(onCallBack, obsOptions);
+observer.observe(document.querySelector('.header'));
+
+//////////////////////////
+//         Reveal Sections
+//////////////////////////
+const allSections = document.querySelectorAll('.section');
+
+// config the settings for the intersection observer API through callback function and options
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+  console.log(entry);
+
+  // quit the intersection observer APi if the viewpoint is not insersecting
+  if (!entry.isIntersecting) return;
+
+  // liberate the target element from the
+  entry.target.classList.remove('section--hidden');
+
+  observer.unobserve(entry.target);
+};
+
+const sectionOptions = {
+  root: null,
+  threshold: 0.15,
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, sectionOptions);
+
+// execute the intersection observation of each section
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
 });
