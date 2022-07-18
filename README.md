@@ -15,4 +15,4 @@
   <li>HTML</li>
   <li>CSS</li>
 </ul>
-<p style="margin-left:25px">The techniques entail <strong>intersection observer</strong>, <strong>lazy image loading</strong></p>
+<p style="margin-left:25px">The techniques entail <strong>intersection observer</strong>, <strong>lazy image loading</strong> and <strong>AKA</strong>.</p>
