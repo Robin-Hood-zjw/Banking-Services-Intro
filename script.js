@@ -223,3 +223,91 @@ const imgObserver = new IntersectionObserver(imgLoader, {
 
 // implement the intersection observer API for each image target
 imgs.forEach(img => imgObserver.observe(img));
+
+//////////////////////////
+//          Slides Loading
+//////////////////////////
+const setSlides = function () {
+  const slides = document.querySelectorAll('.slide');
+  const btnLeft = document.querySelector('.slider__btn--left');
+  const btnRight = document.querySelector('.slider__btn--right');
+  const dotsBox = document.querySelector('.dots');
+
+  let currentSlideIdx = 0;
+  const slidesNum = slides.length;
+
+  // Functions
+  const insertDots = function () {
+    slides.forEach(function (_, idx) {
+      dotsBox.insertAdjacentHTML(
+        'beforeend',
+        `<button class="dots__dot" data-slide="${idx}"></button>`
+      );
+    });
+  };
+
+  const highlightDot = function (slideIdx) {
+    document
+      .querySelectorAll('.dots__dot')
+      .forEach(dot => dot.classList.remove('dots__dot--active'));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slideIdx}"]`)
+      .classList.add('dots__dot--active');
+  };
+
+  const positionSlides = function (slideIdx) {
+    slides.forEach(
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slideIdx)}%)`)
+    );
+  };
+
+  // Next slide
+  const forwardSlide = function () {
+    if (currentSlideIdx === slidesNum - 1) {
+      currentSlideIdx = 0;
+    } else {
+      currentSlideIdx++;
+    }
+
+    positionSlides(currentSlideIdx);
+    highlightDot(currentSlideIdx);
+  };
+
+  const backSlide = function () {
+    if (currentSlideIdx === 0) {
+      currentSlideIdx = slidesNum - 1;
+    } else {
+      currentSlideIdx--;
+    }
+    positionSlides(currentSlideIdx);
+    highlightDot(currentSlideIdx);
+  };
+
+  const initializations = function () {
+    positionSlides(0);
+    insertDots();
+
+    highlightDot(0);
+  };
+  initializations();
+
+  // Event handlers
+  btnRight.addEventListener('click', forwardSlide);
+  btnLeft.addEventListener('click', backSlide);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') backSlide();
+    e.key === 'ArrowRight' && forwardSlide();
+  });
+
+  dotsBox.addEventListener('click', function (e) {
+    if (e.target.classList.contains('dots__dot')) {
+      const { slide } = e.target.dataset;
+      positionSlides(slide);
+      highlightDot(slide);
+    }
+  });
+};
+
+setSlides();
