@@ -15,4 +15,4 @@
   <li>HTML</li>
   <li>CSS</li>
 </ul>
-<p style="margin-left:25px">The techniques entail <strong>intersection observer</strong>, <strong>lazy image loading</strong> and <strong>AKA</strong>. Java Script is the main tool to deploy this webpage, covering all the interaction events trigger by a user's behaviors.</p>
+<p style="margin-left:25px">The techniques entail <strong>intersection observer</strong>, <strong>lazy image loading</strong>. JavaScript is the main tool to deploy this webpage, covering all the interaction events trigger by a user's behaviors.</p>
