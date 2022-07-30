@@ -22,6 +22,7 @@
   <li>
     <h4>Impression Page</h4>
     <p>A big picture introduces the concept of banking service.</p>
+    <p>A user can click the button "Learn More➡️" to stroll to the section of <strong>Festures Intro</strong>.</p>
   </li>
   
   <li>
