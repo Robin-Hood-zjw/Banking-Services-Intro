@@ -27,6 +27,7 @@
   
   <li>
     <h4>Impression Page</h4>
+    <img src="" alt="hero image">
     <p>A big picture introduces the concept of banking service.</p>
     <p>Interactive Part: A user can click the button "<strong>Learn More➡️</strong>" to stroll to the section of <strong>Festures Intro</strong>.</p>
   </li>
