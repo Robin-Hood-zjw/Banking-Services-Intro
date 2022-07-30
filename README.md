@@ -20,6 +20,12 @@
 <h2>Strutcures</h2>
 <ul>
   <li>
+    <h4>Sticky Navigation Bar</h4>
+    <p>A navigation bar is deployed sticking on the top of the page, and it offeres most general basic services and information that users want to learn about.</p>
+    <p>Interactive Part: A user can click the button "<strong>Learn More➡️</strong>" to stroll to the section of <strong>Festures Intro</strong>.</p>
+  </li>
+  
+  <li>
     <h4>Impression Page</h4>
     <p>A big picture introduces the concept of banking service.</p>
     <p>Interactive Part: A user can click the button "<strong>Learn More➡️</strong>" to stroll to the section of <strong>Festures Intro</strong>.</p>
