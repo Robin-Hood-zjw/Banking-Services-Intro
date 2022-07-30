@@ -35,5 +35,14 @@
     <h4>Services Types</h4>
     <p>A big picture introduces the concept of banking service.</p>
   </li>
+  
+  <li>
+    <h4>Users' Stories</h4>
+    <p>Several users talk about their user experience in this web services of this deployed website.</p>
+  </li>
+  
+  <li>
+    <h4>Ending Area</h4>
+    <p>User can visit different deployed pages which are connected to this current page. Moreover, users can register their accounts after reading all the descriptions of all the services and concepts of this banking services.</p>
+  </li>
 </ul>
-<p style="margin-left:25px">The techniques entail <strong>intersection observer</strong>, <strong>lazy image loading</strong> etc. <strong>JavaScript</strong> is the main tool to deploy this webpage, covering all the interaction events trigger by a user's behaviors.</p>
